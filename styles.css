@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #66BFE5; /* BRANDEXTENDERS Blue */
+  --primary-color: #66BFE5; /* Acrobat Branding Blue */
   --secondary-color: #000000; /* Black */
   --accent-color: #f26615; /* Energetic Yellow */
   --brand-green: #66BFE5; /* Brand Green */
@@ -8,7 +8,7 @@
   --light-color: #ffffff; /* White background */
   --medium-color: #f0f2f5; /* Light grey for backgrounds/borders */
   --text-muted: #666666; /* Muted text color */
-  --success-color: #66BFE5; /* BRANDEXTENDERS Blue for checkmarks etc. */
+  --success-color: #66BFE5; /* Acrobat Branding Blue for checkmarks etc. */
   --offset-color: color-mix(in srgb, var(--primary-color), black 46.4%);
   --border-radius: 6px;
   --font-primary: Helvetica, Arial, sans-serif;
@@ -1516,7 +1516,7 @@ main.container > h1 + p { /* Selects paragraph immediately following h1 in main 
 .demo-action-button {
   margin: 3rem auto 0 auto;
   display: block;
-  background-color: var(--primary-color);
+  background-color: var(--brand-orange);
   color: var(--light-color);
   padding: 1.5rem 3rem; /* Double of 0.75rem 1.5rem */
   font-size: 2rem; /* Double of 1rem (assuming base btn font-size) */
@@ -2096,7 +2096,7 @@ main.container > h1 + p { /* Selects paragraph immediately following h1 in main 
   padding: 0.5rem 1rem !important;
   border-radius: var(--border-radius) !important;
   margin-bottom: 1rem !important;
-  border-left: 4px solid #CF0545 !important;
+  border-left: 4px solid #93d4f0 !important;
   padding-left: 1.5rem !important;
 }
 
@@ -2645,9 +2645,9 @@ main.container > h1 + p { /* Selects paragraph immediately following h1 in main 
 /* Browse Incentives Button Styling for summary output only */
 .browse-incentives-btn {
   display: inline-block;
-  background-color: #CF0545;
+  background-color: #93d4f0;
   color: white;
-  border: 2px solid #CF0545;
+  border: 2px solid #93d4f0;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   text-decoration: none;
@@ -3610,7 +3610,7 @@ main.container h3 {
 }
 
 .hero-text-overlay .overlay-background {
-  background-color: rgba(124, 0, 39, 0.753) !important;
+  background-color: rgba(70, 123, 145, 0.753) !important;
   border-radius: clamp(15px, 1vw + 10px, 25px) !important; /* Scale border radius */
   padding: clamp(0.4rem, 1.5vw + 0.2rem, 1.5rem) !important; /* More aggressive scaling */
   display: inline-block !important; /* Center the background on text */
