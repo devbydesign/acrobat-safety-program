@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { URL } = require('url'); // Import URL module for decoding
 
-const port = 3003;
+const port = 3008;
 
 // MIME types for different file extensions
 const mimeTypes = {
