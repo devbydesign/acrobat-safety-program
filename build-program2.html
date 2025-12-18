@@ -16,10 +16,10 @@
   </script>
   <style>
     :root {
-      --primary-color: #CF0545;
+      --primary-color: #93d4f0;
       --secondary-color: #000000;
       --accent-color: #f7b801;
-      --brand-green: #CF0545;
+      --brand-green: #93d4f0;
       --dark-color: #000000;
       --light-color: #ffffff;
       --medium-color: #f0f2f5;
@@ -33,13 +33,19 @@
     }
     
     /* Sticky Program Builder Styles */
-    .program-builder-wrapper {
+    .program-builder-section {
       display: flex;
       gap: 2rem;
-      position: relative;
-      max-width: 1400px;
+      align-items: flex-start;
+      max-width: min(1800px, calc(100vw - 2rem));
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
+    }
+
+    .program-builder-wrapper {
+      flex: 1;
+      position: relative;
     }
     
     .program-features-content {
@@ -49,10 +55,9 @@
     }
     
     .sticky-program-builder {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 380px;
+      position: sticky;
+      top: 100px;
+      width: 450px;
       height: fit-content;
       max-height: 80vh;
       overflow-y: auto;
@@ -62,6 +67,9 @@
       padding: 1.5rem;
       box-shadow: 0 8px 25px rgba(58, 12, 163, 0.15);
       z-index: 999;
+      margin-left: 10px;
+      margin-right: 10px;
+      align-self: flex-start;
     }
     
     .sticky-program-builder h3 {
@@ -306,9 +314,9 @@
     }
     
     .add-to-program-btn {
-      background-color: var(--primary-color);
+      background-color: var(--brand-orange);
       color: var(--light-color);
-      border: 2px solid var(--primary-color);
+      border: 2px solid var(--brand-orange);
       cursor: pointer;
     }
     
@@ -346,11 +354,11 @@
     /* Ensure the grid container is wide enough */
     .detailed-modules-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
-      max-width: none !important;
       width: 100%;
       margin: 0;
+      max-width: 1200px;
     }
     
     /* Style the Recognition Program Features title */
@@ -379,8 +387,30 @@
       min-height: 100vh;
     }
     
+    /* Large screens - ensure proper spacing */
+    @media (min-width: 1600px) {
+      .detailed-modules-grid {
+        gap: 2.5rem;
+      }
+    }
+
+    /* Container responsiveness for smaller screens */
+    @media (max-width: 1400px) {
+      .program-builder-section {
+        max-width: min(1400px, calc(100vw - 2rem));
+      }
+    }
+
+    /* Medium screens - ensure 2 columns */
+    @media (max-width: 1200px) and (min-width: 769px) {
+      .detailed-modules-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+    }
+
     /* Mobile responsiveness */
-    @media (max-width: 1200px) {
+    @media (max-width: 768px) {
       .sticky-program-builder {
         position: fixed !important;
         bottom: 15px !important;
@@ -392,7 +422,6 @@
         max-width: 400px;
         max-height: 45vh;
         margin: 0;
-        order: 1;
         padding: 1rem;
         z-index: 1000;
         background: white;
@@ -401,6 +430,7 @@
         box-shadow: 0 -10px 30px rgba(58, 12, 163, 0.2);
         overflow-y: auto;
         box-sizing: border-box;
+        margin-left: 0;
       }
       
       .program-builder-wrapper {
@@ -418,8 +448,8 @@
       
       .detailed-modules-grid {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
         width: 100%;
       }
       
@@ -462,6 +492,7 @@
         padding: 1rem;
         max-height: 40vh;
         max-width: 450px;
+        margin-left: 0;
       }
       
       .selected-features {
@@ -473,8 +504,8 @@
       }
       
       .detailed-modules-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.25rem;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
       
       .detailed-module.custom-module {
@@ -1620,7 +1651,7 @@
          padding: 0.5rem 1rem !important;
          border-radius: 6px !important;
          margin-bottom: 1rem !important;
-         border-left: 4px solid #CF0545 !important;
+         border-left: 4px solid #93d4f0 !important;
          padding-left: 1.5rem !important;
      }
 
@@ -1825,21 +1856,33 @@
           <input name="headerImgPath" type="hidden" value="https://norisk.webdevbydesign.com/img/BE-header-simple.png">
           <input name="footerImgPath" type="hidden" value="https://norisk.webdevbydesign.com/img/footer-simple.png">
           <div class="detailed-modules-grid">
-            <!-- Welcome Kits Feature -->
-            <div class="detailed-module" data-feature-id="welcome">
-              <h3>
-                <i class="fas fa-gift module-icon"></i>
-                Welcome Kits
-              </h3>
-              <p class="module-description">Make a lasting first impression with thoughtfully curated welcome packages that help new employees feel valued from day one.</p>
+            <!-- Safety Recognition Feature -->
+            <div class="detailed-module" data-feature-id="safety">
+              <h3><i class="fas fa-shield-alt module-icon"></i>Safety Recognition</h3>
+              <p class="module-description">Promote workplace safety through recognition programs that create safety champions and prevent incidents.</p>
+              <ul class="module-benefits">
+                <li>Reduce workplace incidents by 52%</li>
+                <li>Lower workers' compensation costs</li>
+                <li>Create safety champions</li>
+              </ul>
+              <div class="module-actions">
+                <button class="btn learn-more-btn" data-feature="safety">View Ideas</button>
+                <button class="add-to-program-btn" data-feature="Safety Recognition">Add to Program</button>
+              </div>
+            </div>
+
+            <!-- Onboarding Feature -->
+            <div class="detailed-module" data-feature-id="onboarding">
+              <h3><i class="fas fa-gift module-icon"></i>Onboarding</h3>
+              <p class="module-description">Promotional merch makes onboarding and training more engaging, memorable, and effective by creating positive first impressions and reinforcing company culture.</p>
               <ul class="module-benefits">
                 <li>Boost new hire engagement by 48%</li>
                 <li>Reinforce company culture</li>
                 <li>Accelerate team integration</li>
               </ul>
               <div class="module-actions">
-                <button class="btn learn-more-btn" data-feature="welcome">View Ideas</button>
-                <button class="add-to-program-btn" data-feature="Welcome Kits">Add to Program</button>
+                <button class="btn learn-more-btn" data-feature="onboarding">View Ideas</button>
+                <button class="add-to-program-btn" data-feature="Onboarding">Add to Program</button>
               </div>
             </div>
 
@@ -1861,6 +1904,21 @@
               </div>
             </div>
 
+            <!-- Personal Protective Equipment Feature -->
+            <div class="detailed-module" data-feature-id="ppe">
+              <h3><i class="fas fa-hand-holding-heart module-icon"></i>Personal Protective Equipment</h3>
+              <p class="module-description">Keep your team members safe with quality equipment recognition that creates safety champions and demonstrates your commitment to workplace safety.</p>
+              <ul class="module-benefits">
+                <li>Improve safety compliance by 45%</li>
+                <li>Reduce workplace accidents</li>
+                <li>Demonstrate safety commitment</li>
+              </ul>
+              <div class="module-actions">
+                <button class="btn learn-more-btn" data-feature="ppe">View Ideas</button>
+                <button class="add-to-program-btn" data-feature="Personal Protective Equipment">Add to Program</button>
+              </div>
+            </div>
+
             <!-- Performance Bonuses Feature -->
             <div class="detailed-module" data-feature-id="performance">
               <h3><i class="fas fa-trophy module-icon"></i>Performance Bonuses</h3>
@@ -1876,18 +1934,48 @@
               </div>
             </div>
 
-            <!-- Wellness Programs Feature -->
-            <div class="detailed-module" data-feature-id="wellness">
-              <h3><i class="fas fa-heartbeat module-icon"></i>Wellness Programs</h3>
-              <p class="module-description">Promote employee health and well-being through engaging wellness initiatives and rewards that encourage healthy lifestyle choices.</p>
+            <!-- Point-Based Rewards Feature -->
+            <div class="detailed-module" data-feature-id="points">
+              <h3><i class="fas fa-star-half-alt module-icon"></i>Point-Based Rewards</h3>
+              <p class="module-description">Create flexible, engaging experiences that allow employees to choose rewards that truly matter to them.</p>
               <ul class="module-benefits">
-                <li>Reduce healthcare costs by 25%</li>
-                <li>Decrease absenteeism</li>
-                <li>Boost team energy</li>
+                <li>40% higher satisfaction with choice</li>
+                <li>23% higher participation rates</li>
+                <li>2.5x more likely to seek opportunities</li>
               </ul>
               <div class="module-actions">
-                <button class="btn learn-more-btn" data-feature="wellness">View Ideas</button>
-                <button class="add-to-program-btn" data-feature="Wellness Programs">Add to Program</button>
+                <button class="btn learn-more-btn" data-feature="points">View Ideas</button>
+                <button class="add-to-program-btn" data-feature="Point-Based Rewards">Add to Program</button>
+              </div>
+            </div>
+
+            <!-- Number of Days Since Incident Feature -->
+            <div class="detailed-module" data-feature-id="number">
+              <h3><i class="fas fa-calendar-times module-icon"></i>Number of Days Since Incident</h3>
+              <p class="module-description">Celebrate safety records and build incident-free momentum by tracking and recognizing days without workplace incidents.</p>
+              <ul class="module-benefits">
+                <li>Build safety culture momentum</li>
+                <li>Reduce incident recurrence by 38%</li>
+                <li>Enhance safety awareness</li>
+              </ul>
+              <div class="module-actions">
+                <button class="btn learn-more-btn" data-feature="number">View Ideas</button>
+                <button class="add-to-program-btn" data-feature="Number of Days Since Incident">Add to Program</button>
+              </div>
+            </div>
+
+            <!-- Incentive Programs Feature -->
+            <div class="detailed-module" data-feature-id="incentives">
+              <h3><i class="fas fa-concierge-bell module-icon"></i>Incentive Programs</h3>
+              <p class="module-description">Drive specific behaviors and outcomes while creating excitement and engagement around key business objectives.</p>
+              <ul class="module-benefits">
+                <li>28% faster goal achievement</li>
+                <li>22% higher collaboration</li>
+                <li>2.6x more effective than cash</li>
+              </ul>
+              <div class="module-actions">
+                <button class="btn learn-more-btn" data-feature="incentives">View Ideas</button>
+                <button class="add-to-program-btn" data-feature="Incentive Programs">Add to Program</button>
               </div>
             </div>
 
@@ -1921,21 +2009,6 @@
               </div>
             </div>
 
-            <!-- Point-Based Rewards Feature -->
-            <div class="detailed-module" data-feature-id="points">
-              <h3><i class="fas fa-star-half-alt module-icon"></i>Point-Based Rewards</h3>
-              <p class="module-description">Create flexible, engaging experiences that allow employees to choose rewards that truly matter to them.</p>
-              <ul class="module-benefits">
-                <li>40% higher satisfaction with choice</li>
-                <li>23% higher participation rates</li>
-                <li>2.5x more likely to seek opportunities</li>
-              </ul>
-              <div class="module-actions">
-                <button class="btn learn-more-btn" data-feature="points">View Ideas</button>
-                <button class="add-to-program-btn" data-feature="Point-Based Rewards">Add to Program</button>
-              </div>
-            </div>
-
             <!-- General Awards Feature -->
             <div class="detailed-module" data-feature-id="awards">
               <h3><i class="fas fa-award module-icon"></i>General Awards</h3>
@@ -1951,51 +2024,6 @@
               </div>
             </div>
 
-            <!-- Incentive Programs Feature -->
-            <div class="detailed-module" data-feature-id="incentives">
-              <h3><i class="fas fa-concierge-bell module-icon"></i>Incentive Programs</h3>
-              <p class="module-description">Drive specific behaviors and outcomes while creating excitement and engagement around key business objectives.</p>
-              <ul class="module-benefits">
-                <li>28% faster goal achievement</li>
-                <li>22% higher collaboration</li>
-                <li>2.6x more effective than cash</li>
-              </ul>
-              <div class="module-actions">
-                <button class="btn learn-more-btn" data-feature="incentives">View Ideas</button>
-                <button class="add-to-program-btn" data-feature="Incentive Programs">Add to Program</button>
-              </div>
-            </div>
-
-            <!-- Attendance Recognition Feature -->
-            <div class="detailed-module" data-feature-id="attendance">
-              <h3><i class="fas fa-calendar-check module-icon"></i>Attendance Recognition</h3>
-              <p class="module-description">Celebrate reliable team members and build a culture where consistent attendance is valued and rewarded.</p>
-              <ul class="module-benefits">
-                <li>Reduce absenteeism by 41%</li>
-                <li>Improve project completion rates</li>
-                <li>Build reliability culture</li>
-              </ul>
-              <div class="module-actions">
-                <button class="btn learn-more-btn" data-feature="attendance">View Ideas</button>
-                <button class="add-to-program-btn" data-feature="Attendance Recognition">Add to Program</button>
-              </div>
-            </div>
-
-            <!-- Safety Recognition Feature -->
-            <div class="detailed-module" data-feature-id="safety">
-              <h3><i class="fas fa-shield-alt module-icon"></i>Safety Recognition</h3>
-              <p class="module-description">Promote workplace safety through recognition programs that create safety champions and prevent incidents.</p>
-              <ul class="module-benefits">
-                <li>Reduce workplace incidents by 52%</li>
-                <li>Lower workers' compensation costs</li>
-                <li>Create safety champions</li>
-              </ul>
-              <div class="module-actions">
-                <button class="btn learn-more-btn" data-feature="safety">View Ideas</button>
-                <button class="add-to-program-btn" data-feature="Safety Recognition">Add to Program</button>
-              </div>
-            </div>
-
             <!-- Community Impact Feature -->
             <div class="detailed-module" data-feature-id="community">
               <h3><i class="fas fa-hands-helping module-icon"></i>Community Impact</h3>
@@ -2008,26 +2036,6 @@
               <div class="module-actions">
                 <button class="btn learn-more-btn" data-feature="community">View Ideas</button>
                 <button class="add-to-program-btn" data-feature="Community Impact">Add to Program</button>
-              </div>
-            </div>
-
-
-
-            <!-- Volunteer Recognition Feature -->
-            <div class="detailed-module" data-feature-id="volunteer">
-              <h3>
-                <i class="fas fa-hands-helping module-icon"></i>
-                Volunteer Recognition
-              </h3>
-              <p class="module-description">Celebrate and encourage employee volunteerism with meaningful recognition that strengthens community engagement and corporate social responsibility.</p>
-              <ul class="module-benefits">
-                <li>89% improved employee engagement</li>
-                <li>70% enhanced company reputation</li>
-                <li>Stronger community impact</li>
-              </ul>
-              <div class="module-actions">
-                <button class="btn learn-more-btn" data-feature="volunteer">View Ideas</button>
-                <button class="add-to-program-btn" data-feature="Volunteer Recognition">Add to Program</button>
               </div>
             </div>
 
@@ -2052,23 +2060,23 @@
           </div>
         </div>
 
-        <!-- Sticky Program Builder (Right Side) -->
-        <div class="sticky-program-builder">
-          <h3>Your Program</h3>
-          <div class="program-counter">
-            <span id="feature-count">0</span> features selected
-          </div>
-          <div id="selected-features" class="selected-features empty">
-            <span class="empty-message">Select features to build your program!</span>
-          </div>
-          <button id="finalize-program-btn" class="finalize-program-btn" disabled>
-            <i class="fas fa-rocket"></i> Finalize Your Program
-          </button>
-          <button id="clear-program-btn" class="clear-program-btn">
-            <i class="fas fa-redo-alt"></i> Reset My Plan
-          </button>
+      </div>
+
+      <!-- Sticky Program Builder (Right Side) -->
+      <div class="sticky-program-builder">
+        <h3>Your Program</h3>
+        <div class="program-counter">
+          <span id="feature-count">0</span> features selected
         </div>
-        
+        <div id="selected-features" class="selected-features empty">
+          <span class="empty-message">Select features to build your program!</span>
+        </div>
+        <button id="finalize-program-btn" class="finalize-program-btn" disabled>
+          <i class="fas fa-rocket"></i> Finalize Your Program
+        </button>
+        <button id="clear-program-btn" class="clear-program-btn">
+          <i class="fas fa-redo-alt"></i> Reset My Plan
+        </button>
       </div>
     </section>
 
@@ -2474,22 +2482,19 @@
 
         // Feature descriptions for the form display
         const featureDescriptions = {
-          'Welcome Kits': 'A vital first step to improving your employee well-being and efficiency',
+          'Safety Recognition': 'Creating safety champions and preventing workplace incidents through proactive recognition',
+          'Onboarding': 'Making lasting first impressions with thoughtful welcome packages that accelerate new hire integration',
           'Years of Service': 'Building loyalty and recognition that strengthens your organizational foundation',
-          'Years of Service Recognition': 'Building loyalty and recognition that strengthens your organizational foundation',
+          'Personal Protective Equipment': 'Creating safety champions and demonstrating commitment to workplace safety through equipment recognition',
           'Performance Bonuses': 'Driving excellence through targeted rewards that motivate and inspire',
-          'Performance Recognition': 'Driving excellence through targeted rewards that motivate and inspire',
-          'Wellness Programs': 'Promoting health and vitality that enhances both personal and professional success',
+          'Point-Based Rewards': 'Flexible reward systems that maximize satisfaction through employee choice and engagement',
+          'Number of Days Since Incident': 'Building safety culture momentum by celebrating and tracking incident-free days',
+          'Incentive Programs': 'Strategic programs that drive specific behaviors and accelerate goal achievement',
           'Spot Recognition': 'Creating positive momentum through immediate acknowledgment of exceptional work',
           'Peer-to-Peer': 'Fostering a culture of appreciation where team members celebrate each other',
-          'Point-Based Rewards': 'Flexible reward systems that maximize satisfaction through employee choice and engagement',
           'General Awards': 'Formal recognition programs that create memorable moments and inspire excellence',
-          'Incentive Programs': 'Strategic programs that drive specific behaviors and accelerate goal achievement',
-          'Attendance Recognition': 'Building reliability culture and reducing absenteeism through consistent recognition',
-          'Safety Recognition': 'Creating safety champions and preventing workplace incidents through proactive recognition',
           'Community Impact': 'Building purpose-driven culture through recognition of volunteer and community engagement',
-          'Custom Recognition': 'Tailored recognition programs that address your unique organizational values and goals',
-          'Volunteer Recognition': 'Celebrating employee volunteerism to enhance engagement and organizational purpose'
+          'Custom Recognition': 'Tailored recognition programs that address your unique organizational values and goals'
         };
 
         formFeaturesList.innerHTML = '';
@@ -2594,21 +2599,18 @@
           
           // Feature links mapping for Browse Incentives buttons
           const featureLinks = {
-            'Welcome Kits': 'https://www.promo-monster.com/:quicksearch.htm?quicksearchbox=Welcome+Kits&LoP=&HiP=',
+            'Safety Recognition': 'https://rbbmarketing-clientportal.com/sub_category_post/employee-appreciation-merchandise-apparel/',
+            'Onboarding': 'https://www.promo-monster.com/:quicksearch.htm?quicksearchbox=Welcome+Kits&LoP=&HiP=',
             'Years of Service': 'https://www.promo-monster.com/:quicksearch.htm?quicksearchbox=service+award&LoP=&HiP=',
-            'Years of Service Recognition': 'https://www.promo-monster.com/:quicksearch.htm?quicksearchbox=service+award&LoP=&HiP=',
+            'Personal Protective Equipment': 'https://rbbmarketing-clientportal.com/sub_category_post/employee-appreciation-merchandise-apparel/',
             'Performance Bonuses': 'https://rbbmarketing-clientportal.com/sub_category_post/incentives-employee/',
-            'Performance Recognition': 'https://rbbmarketing-clientportal.com/sub_category_post/incentives-employee/',
-            'Wellness Programs': 'https://rbbmarketing-clientportal.com/sub_category_post/health-and-wellness-all-products/',
+            'Point-Based Rewards': 'https://rbbmarketing-clientportal.com/simple_product/merchandise-incentive-program-2/',
+            'Number of Days Since Incident': 'https://rbbmarketing-clientportal.com/sub_category_post/employee-appreciation-merchandise-apparel/',
+            'Incentive Programs': 'https://rbbmarketing-clientportal.com/sub_category_post/incentives-employee/',
             'Spot Recognition': 'https://rbbmarketing-clientportal.com/sub_category_post/employee-appreciation-all-products/',
             'Peer-to-Peer': 'https://rbbmarketing-clientportal.com/sub_category_post/back-to-work-desk/',
-            'Point-Based Rewards': 'https://rbbmarketing-clientportal.com/simple_product/merchandise-incentive-program-2/',
             'General Awards': 'https://www.promo-monster.com/awards-recognition-paper-weights-crystal.htm',
-            'Incentive Programs': 'https://rbbmarketing-clientportal.com/sub_category_post/incentives-employee/',
-            'Attendance Recognition': 'https://rbbmarketing-clientportal.com/sub_category_post/employee-appreciation-merchandise-drinkware/',
-            'Safety Recognition': 'https://rbbmarketing-clientportal.com/sub_category_post/employee-appreciation-merchandise-apparel/',
             'Community Impact': 'https://rbbmarketing-clientportal.com/sub_category_post/incentives-all-products/',
-            'Volunteer Recognition': 'https://rbbmarketing-clientportal.com/sub_category_post/incentives-all-products/',
             'Custom Recognition': 'https://rbbmarketing-clientportal.com/sub_category_post/incentives-all-products/'
           };
           
@@ -2720,55 +2722,38 @@
         });
       }
       
-      // Position sticky builder relative to content
+      // Position sticky builder - ensure proper sticky positioning
       function positionStickyBuilder() {
-        const wrapper = document.querySelector('.program-builder-wrapper');
-        const content = document.querySelector('.program-features-content');
         const builder = document.querySelector('.sticky-program-builder');
-        
-        if (wrapper && content && builder) {
-          const wrapperRect = wrapper.getBoundingClientRect();
-          const contentRect = content.getBoundingClientRect();
-          
-          // Calculate position: content right edge + 50px gap
-          const leftPosition = contentRect.right + 50;
-          
-          // Make sure it doesn't go off screen
-          const maxLeft = window.innerWidth - 340; // 320px width + 20px margin
-          const finalLeft = Math.min(leftPosition, maxLeft);
-          
-          builder.style.left = finalLeft + 'px';
+        if (builder) {
+          if (window.innerWidth > 1200) {
+            // Desktop: sticky position
+            builder.style.position = 'sticky';
+            builder.style.top = '200px';
+          } else {
+            // Mobile/tablet: let CSS media queries handle positioning
+            builder.style.position = '';
+            builder.style.top = '';
+          }
         }
-      }
-      
-      // Update position on scroll and resize
-      function handleScroll() {
-        positionStickyBuilder();
-      }
-      
-      function handleResize() {
-        positionStickyBuilder();
       }
       
       // Helper function to get feature key from display name
       function getFeatureKeyFromName(name) {
         const nameMapping = {
-          'Welcome Kits': 'welcome',
+          'Safety Recognition': 'safety',
+          'Onboarding': 'onboarding',
           'Years of Service': 'service',
-          'Years of Service Recognition': 'service', // Handle both naming variations
+          'Personal Protective Equipment': 'ppe',
           'Performance Bonuses': 'performance',
-          'Performance Recognition': 'performance', // Handle both naming variations
-          'Wellness Programs': 'wellness',
-          'Spot Recognition': 'spot',
-          'Peer-to-Peer': 'peer',
           'Point-Based Rewards': 'points',
-          'General Awards': 'awards',
+          'Number of Days Since Incident': 'number',
           'Incentive Programs': 'incentives',
           'Incentives': 'incentives', // Fallback for build-program.html title text
-          'Attendance Recognition': 'attendance',
-          'Safety Recognition': 'safety',
+          'Spot Recognition': 'spot',
+          'Peer-to-Peer': 'peer',
+          'General Awards': 'awards',
           'Community Impact': 'community',
-          'Volunteer Recognition': 'volunteer',
           'Custom Recognition': 'custom'
         };
         const result = nameMapping[name] || null;
@@ -2783,41 +2768,6 @@
 
       // Feature modal data with real statistics and compelling content
       const featureData = {
-        welcome: {
-          title: "Welcome Kits",
-          icon: "fas fa-gift",
-          description: `
-            <p>First impressions matter more than ever in today's competitive talent market. A thoughtfully crafted welcome kit sets the tone for an employee's entire journey with your organization.</p>
-            
-            <h4>Why Welcome Kits Drive Success</h4>
-            <!-- Source: https://www.shrm.org/hr-today/news/hr-magazine/pages/0914-onboarding.aspx -->
-            <p>Research from the Society for Human Resource Management (SHRM) shows that new employees who went through a structured onboarding program were <span class="stat-highlight stat-tooltip">69% more likely to remain<span class="tooltip-content">Source: SHRM</span></span> with the company for up to three years.</p>
-            
-            <h4>Proven Benefits</h4>
-            <!-- Source: https://www.globenewswire.com/news-release/2011/11/17/459702/238734/en/Onboarding-2011-The-Path-to-Productivity.html -->
-            <p>Organizations with a standard onboarding process see <span class="stat-highlight stat-tooltip">54% greater new-hire productivity<span class="tooltip-content">Source: Aberdeen Group</span></span> and <span class="stat-highlight stat-tooltip">50% greater new-hire retention<span class="tooltip-content">Source: Aberdeen Group</span></span> according to the Aberdeen Group. Your welcome kit becomes the first touchpoint in this critical process.</p>
-            
-            <h4>What Makes Welcome Kits Effective</h4>
-            <p>The most successful welcome kits combine practical items employees will use daily with branded elements that reinforce company culture. From premium drinkware to tech accessories that enhance productivity, each item serves as a daily reminder of belonging.</p>
-            <p><span class="stat-highlight">Customize your onboarding kits</span> to greet new hires with branded merchandise, information packets, and all essentials to start their journey.</p>
-          `,
-          products: [
-            { name: "Tote Bag", image: "assets/images/tote1.jpg" },
-                      { name: "Welcome Kit", image: "assets/images/kit1.PNG" },
-          { name: "Travel Bag", image: "assets/images/travelbag1.jpg" },
-          { name: "Complete Kit", image: "assets/images/BrandMErchandise2.png" }
-        ],
-        customizeProducts: [
-          { name: "Clothing Bundle", image: "assets/images/ClothingBundle2.png" },
-          { name: "Custom Bundle", image: "assets/images/bundle1.PNG" },
-                      { name: "Custom Kit", image: "assets/images/kit2.PNG" },
-          { name: "Custom Gift Box", image: "assets/images/bundle3.PNG" },
-          { name: "Drinkware", image: "assets/images/waterbottle1.png" },
-          { name: "Welcome Note Cards", image: "assets/images/Mat1.PNG" },
-          { name: "Fun Gifts", image: "assets/images/socks1.PNG" },
-          { name: "Apparel", image: "assets/images/jacket1.PNG" }
-          ]
-        },
         service: {
           title: "Years of Service Recognition",
           icon: "fas fa-calendar-alt",
@@ -2868,31 +2818,6 @@
           products: [
             { name: "Arctic Zone Mug", image: "assets/images/Arctic-Zone-Titan-24-oz.-Copper-Mug-1024x1024.jpg" },
             { name: "Premium Apparel", image: "assets/images/triblend-tshirts.jpg" },
-            { name: "Travel Bag", image: "assets/images/Weekend Travel bag.jpg" },
-            { name: "Sling Bag", image: "assets/images/Popular Sling Bag.jpg" }
-          ]
-        },
-        wellness: {
-          title: "Wellness Programs",
-          icon: "fas fa-heartbeat",
-          description: `
-            <p>Employee wellness isn't just a benefit—it's a strategic business imperative that directly impacts productivity, healthcare costs, and organizational culture.</p>
-            
-            <h4>The Business Case for Wellness</h4>
-            <!-- Source: https://www.cdc.gov/pcd/issues/2010/jul/10_0013.htm -->
-            <p>A comprehensive analysis published by the CDC found that for every dollar invested in wellness programs, companies can see an average return of <span class="stat-highlight stat-tooltip">$3.27 in reduced medical costs<span class="tooltip-content">Source: CDC</span></span>. Other studies have shown a <span class="stat-highlight stat-tooltip">28% reduction in sick days<span class="tooltip-content">Source: Harvard Business Review</span></span> and a <span class="stat-highlight stat-tooltip">26% reduction in healthcare costs<span class="tooltip-content">Source: Harvard Business Review</span></span>.</p>
-            
-            <h4>More Than Physical Health</h4>
-            <!-- Source: https://hbr.org/2010/12/whats-the-hard-return-on-employee-wellness-programs -->
-                        <p>Modern wellness programs address mental health and work-life balance. Johnson & Johnson's wellness program famously saved the company <span class="stat-highlight stat-tooltip">$250 million<span class="tooltip-content">Source: Harvard Business Review</span></span> in healthcare costs over a decade, as reported by Harvard Business Review.</p>
-              
-              <h4>Wellness as a Culture Builder</h4>
-              <!-- Source: https://www.gallup.com/workplace/236021/why-wellness-program-isnt-enough.aspx -->
-              <p>Wellness initiatives demonstrate genuine care for employee wellbeing. Employees who feel their company cares about their well-being are <span class="stat-highlight stat-tooltip">3x more likely<span class="tooltip-content">Source: Gallup</span></span> to be engaged at work, according to Gallup research.</p>
-          `,
-          products: [
-            { name: "Arctic Zone Mug", image: "assets/images/Arctic-Zone-Titan-24-oz.-Copper-Mug-1024x1024.jpg" },
-            { name: "Cozy Sherpa", image: "assets/images/Warm and Cozy Sherpa.jpg" },
             { name: "Travel Bag", image: "assets/images/Weekend Travel bag.jpg" },
             { name: "Sling Bag", image: "assets/images/Popular Sling Bag.jpg" }
           ]
@@ -3010,29 +2935,6 @@
             { name: "Custom Incentives", image: "assets/images/Apparel2.png" }
           ]
         },
-        attendance: {
-          title: "Attendance Recognition",
-          icon: "fas fa-calendar-check",
-          description: `
-            <p>Rewarding employees for consistent attendance encourages dependability and helps reduce the disruption caused by callouts or chronic absenteeism. This is especially vital in balancing the workplace load.</p>
-            
-            <h4>The Hidden Cost of Absenteeism</h4>
-            <p>The CDC estimates that absenteeism costs U.S. employers <span class="stat-highlight stat-tooltip">$225.8 billion annually<span class="tooltip-content">Source: CDC</span></span> in lost productivity. Companies with attendance recognition programs see <span class="stat-highlight stat-tooltip">41% reduction in unscheduled absences<span class="tooltip-content">Source: SHRM</span></span> according to research from the Society for Human Resource Management.</p>
-            
-            <h4>Building Reliability Culture</h4>
-            <p>When attendance is recognized and celebrated, it creates a culture where being present matters. Studies show that <span class="stat-highlight stat-tooltip">teams with attendance recognition have 23% better project completion rates<span class="tooltip-content">Source: Workplace Reliability Research</span></span> and <span class="stat-highlight stat-tooltip">18% higher customer satisfaction scores<span class="tooltip-content">Source: Workplace Reliability Research</span></span> due to improved consistency and reliability.</p>
-            
-            <h4>Beyond Perfect Attendance</h4>
-            <p>Modern attendance programs recognize improvement, not just perfection. Whether it's monthly or quarterly-this recognition can include points, small gifts, or public praise, all of which boost employee commitment. This reduces overtime burden on others, and positively impacts their workplace experience.</p>
-          `,
-          // <p>Modern attendance programs recognize improvement, not just perfection. Employees who improve their attendance by <span class="stat-highlight stat-tooltip">15% or more show 34% higher engagement<span class="tooltip-content">Source: Gallup</span></span> and are <span class="stat-highlight stat-tooltip">2.8x more likely<span class="tooltip-content">Source: Gallup</span></span> to recommend their workplace to others, according to Gallup research.</p>
-          products: [
-            { name: "Public Recognition", image: "assets/images/PublicRecognition.jpg" },
-            { name: "Points System", image: "assets/images/Points.jpg" },
-            { name: "Drinkware", image: "assets/images/DrinkwareMug.png.png" },
-            { name: "Apparel", image: "assets/images/ApparelSweater.png" }
-          ]
-        },
         safety: {
           title: "Safety Recognition",
           icon: "fas fa-shield-alt",
@@ -3078,29 +2980,6 @@
           ]
         },
 
-        volunteer: {
-          title: "Volunteer Recognition",
-          icon: "fas fa-hands-helping",
-          description: `
-            <p>Recognizing employees who volunteer—whether within the organization or externally—supports a purpose-driven culture and encourages civic engagement. Tracking and celebrating volunteer hours through branded items, awards, or time-off incentives deepens employee satisfaction and enhances your organization's image.</p>
-            
-            <h4>The Impact of Employee Volunteering</h4>
-            <!-- Source: Deloitte Volunteer Impact Research -->
-            <p>According to Deloitte's research, companies with volunteer recognition programs see <span class="stat-highlight stat-tooltip">89% higher employee engagement scores<span class="tooltip-content">Source: Deloitte Volunteer Impact Research</span></span> and <span class="stat-highlight stat-tooltip">70% stronger positive company reputation<span class="tooltip-content">Source: Deloitte Volunteer Impact Research</span></span>.</p>
-            
-            <h4>Building Community Connections</h4>
-            <p>When employees are recognized for their volunteer efforts, they're more likely to continue giving back. Our volunteer recognition program helps create a sustainable culture of community service.</p>
-            
-            <h4>Recognition That Inspires</h4>
-            <p>From comfortable apparel for volunteer events to practical items that show appreciation, each recognition piece is designed to celebrate and encourage continued community involvement.</p>
-          `,
-          products: [
-            { name: "Blankets", image: "assets/images/Customized Merchandise.png" },
-            { name: "Apparel", image: "assets/images/Apparel.png" },
-            { name: "Sling Bag", image: "assets/images/SlingBackpacks.png" },
-            { name: "Insulated Drinkware", image: "assets/images/Drinkware3.png" }
-          ]
-        },
         custom: {
           title: "Customize Your Personalized Program",
           icon: "fas fa-edit",
@@ -3128,6 +3007,72 @@
             { name: "Branded Items", image: "assets/images/BrandMErchandise.png" },
             { name: "Personalized Gifts", image: "assets/images/Ceramic Mugs.jpg" },
             { name: "Experience Packages", image: "assets/images/Popular Sling Bag.jpg" }
+          ]
+        },
+        ppe: {
+          title: "Personal Protective Equipment",
+          icon: "fas fa-hand-holding-heart",
+          description: `
+            <p>Safety is paramount in any workplace, and recognizing employees who consistently prioritize safety sends a powerful message about your organization's values.</p>
+
+            <h4>The Safety Recognition Imperative</h4>
+            <p>Workplace safety isn't just about compliance—it's about creating a culture where every team member feels responsible for their own safety and that of their colleagues. PPE recognition programs demonstrate that you value this commitment.</p>
+
+            <h4>Building Safety Champions</h4>
+            <p>When employees see that their safety-conscious behavior is noticed and rewarded, they become advocates for safety throughout your organization. This creates a positive feedback loop that reduces incidents and builds trust.</p>
+
+            <h4>Practical Safety Solutions</h4>
+            <p>From high-visibility apparel to protective gear that employees actually want to wear, our PPE solutions combine safety requirements with employee satisfaction. Make safety a point of pride in your workplace.</p>
+          `,
+          products: [
+            { name: "Safety Apparel", image: "assets/images/jacket1.PNG" },
+            { name: "Protective Gear", image: "assets/images/PPE.png" },
+            { name: "Safety Awards", image: "assets/images/YearsOfService_Safety.PNG" },
+            { name: "Branded PPE", image: "assets/images/BrandMErchandise.png" }
+          ]
+        },
+        number: {
+          title: "Number of Days Since Incident",
+          icon: "fas fa-calendar-times",
+          description: `
+            <p>Tracking days without workplace incidents creates powerful momentum and celebrates the collective effort that keeps everyone safe.</p>
+
+            <h4>The Power of Positive Momentum</h4>
+            <p>When safety records are celebrated publicly, it creates positive peer pressure and reinforces that safety is a shared responsibility. Each day without an incident becomes a victory worth acknowledging.</p>
+
+            <h4>Building Safety Culture</h4>
+            <p>Incident-free milestones aren't just numbers—they're testaments to your team's commitment to safety protocols, training, and mutual care. Recognition programs transform these achievements into celebrated milestones.</p>
+
+            <h4>Sustainable Safety Culture</h4>
+            <p>Regular recognition of safety records creates lasting behavioral change. When employees see their collective safety efforts acknowledged, they become more invested in maintaining those records.</p>
+          `,
+          products: [
+            { name: "Safety Milestones", image: "assets/images/YearsOfService_Safety.PNG" },
+            { name: "Recognition Awards", image: "assets/images/GlassAward.PNG" },
+            { name: "Safety Plaques", image: "assets/images/PlaquesWithStands.png" },
+            { name: "Celebration Items", image: "assets/images/Ceramic Mugs.jpg" }
+          ]
+        },
+        onboarding: {
+          title: "Onboarding",
+          icon: "fas fa-gift",
+          description: `
+            <p>The first impression your new employees have sets the tone for their entire tenure. Onboarding programs that combine practical essentials with branded merchandise create lasting positive associations.</p>
+
+            <h4>The First Day Experience</h4>
+            <p>New employees form opinions about your organization within their first few hours. A thoughtful welcome package that includes both practical items and branded merchandise helps them feel valued from day one.</p>
+
+            <h4>Accelerating Integration</h4>
+            <p>Quality onboarding reduces time-to-productivity and increases retention. When new hires receive items that make their transition smoother, they're more likely to feel supported and engaged.</p>
+
+            <h4>Building Company Pride</h4>
+            <p>Branded onboarding materials reinforce company culture and values. From premium apparel to personalized stationery, each item becomes a daily reminder of their new workplace family.</p>
+          `,
+          products: [
+            { name: "Welcome Kits", image: "assets/images/kit1.PNG" },
+            { name: "Branded Apparel", image: "assets/images/Apparel.png" },
+            { name: "Office Essentials", image: "assets/images/Pens.png" },
+            { name: "Welcome Packages", image: "assets/images/bundle1.PNG" }
           ]
         }
       };
@@ -3157,17 +3102,17 @@
             
             // Populate products with feature-specific titles
             const productTitles = {
-              'welcome': 'Package It Like a Gift',
+              'safety': 'Celebrate Safety',
+              'onboarding': 'Welcome Them Well',
               'service': 'Years of Service Ideas',
+              'ppe': 'Protect and Recognize',
               'performance': 'Reward Excellence',
-              'wellness': 'Nurture Their Well-Being',
+              'points': 'Choose Your Rewards',
+              'number': 'Track Safety Success',
+              'incentives': 'Motivate Success',
               'spot': 'Make It Memorable',
               'peer': 'Share the Appreciation',
-              'points': 'Choose Your Rewards',
               'awards': 'Honor Their Excellence',
-              'incentives': 'Motivate Success',
-              'attendance': 'Recognize Reliability',
-              'safety': 'Celebrate Safety',
               'community': 'Honor Service',
               'custom': 'Create Something Unique'
             };
@@ -3241,19 +3186,18 @@
             
             // Set up modal actions
             const featureMap = {
-              'welcome': 'Welcome Kits',
+              'safety': 'Safety Recognition',
+              'onboarding': 'Onboarding',
               'service': 'Years of Service',
+              'ppe': 'Personal Protective Equipment',
               'performance': 'Performance Bonuses',
-              'wellness': 'Wellness Programs',
+              'points': 'Point-Based Rewards',
+              'number': 'Number of Days Since Incident',
+              'incentives': 'Incentive Programs',
               'spot': 'Spot Recognition',
               'peer': 'Peer-to-Peer',
-              'points': 'Point-Based Rewards',
               'awards': 'General Awards',
-              'incentives': 'Incentive Programs',
-              'attendance': 'Attendance Recognition',
-              'safety': 'Safety Recognition',
               'community': 'Community Impact',
-              'volunteer': 'Volunteer Recognition',
               'custom': 'Custom Recognition'
             };
             
@@ -3366,8 +3310,7 @@
       });
       
       // Add event listeners
-      window.addEventListener('scroll', handleScroll);
-      window.addEventListener('resize', handleResize);
+      window.addEventListener('resize', positionStickyBuilder);
       
       // Custom program functionality
       const addCustomProgramBtn = document.getElementById('add-custom-program');
