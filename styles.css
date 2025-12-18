@@ -1,18 +1,18 @@
 :root {
-  --primary-color: #CF0545; /* BRANDEXTENDERS Blue */
+  --primary-color: #66BFE5; /* BRANDEXTENDERS Blue */
   --secondary-color: #000000; /* Black */
-  --accent-color: #f7b801; /* Energetic Yellow */
-  --brand-green: #CF0545; /* Brand Green */
-  --brand-orange: #CF0545; /* Alias for primary color to fix existing references */
+  --accent-color: #f26615; /* Energetic Yellow */
+  --brand-green: #66BFE5; /* Brand Green */
+  --brand-orange: #f26615; /* Alias for primary color to fix existing references */
   --dark-color: #000000; /* Black for text */
   --light-color: #ffffff; /* White background */
   --medium-color: #f0f2f5; /* Light grey for backgrounds/borders */
   --text-muted: #666666; /* Muted text color */
-  --success-color: #CF0545; /* BRANDEXTENDERS Blue for checkmarks etc. */
-  --offset-color: color-mix(in srgb, var(--primary-color), black 70%);
+  --success-color: #66BFE5; /* BRANDEXTENDERS Blue for checkmarks etc. */
+  --offset-color: color-mix(in srgb, var(--primary-color), black 46.4%);
   --border-radius: 6px;
-  --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-secondary: 'Georgia', serif; /* For select headings or accents */
+  --font-primary: Helvetica, Arial, sans-serif;
+  --font-secondary: Helvetica, Arial, sans-serif; /* For select headings or accents */
   --transition-speed: 0.3s;
   --section-padding: 4rem 0;
 }
