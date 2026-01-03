@@ -2601,6 +2601,7 @@ main.container > h1 + p { /* Selects paragraph immediately following h1 in main 
 .feature-product-thumb {
   width: 120px;
   height: 120px;
+  max-width: 48%;
   object-fit: cover;
   border-radius: 4px;
   border: 1px solid #ddd;
