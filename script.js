@@ -1429,7 +1429,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         if(planSummarySection) {
-            const summaryLogo = `<img src="assets/images/Logo.png" alt="BRANDEXTENDERS Logo" style="max-width: 200px; margin-bottom: 20px;">`;
+            const summaryLogo = `<img src="assets/images/Logo.png" alt="Acrobat Branding Logo" style="max-width: 200px; margin-bottom: 20px;">`;
             const whatsNext = `
                 <h3>What's Next:</h3>
                 <ul>
