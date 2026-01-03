@@ -18,18 +18,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="footer-section footer-social">
                     <h3>Follow Us</h3>
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/company/brandextenders/" target="_blank" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>    
-                        <a href="https://www.instagram.com/brandextenders/" target="_blank" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://twitter.com/brandextenders" target="_blank" aria-label="X (Twitter)">
-                            <i class="fab fa-x-twitter"></i>
-                        </a>
-                        <a href="https://www.facebook.com/Brandextenders" target="_blank" aria-label="Facebook">
+                    <a href="https://www.instagram.com/acrobatbranding/" target="_blank" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
+                        <a href="https://www.linkedin.com/company/acrobatbranding/about/" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>    
+                        <a href="https://www.instagram.com/acrobatbranding/" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                                       
                         
                     </div>
                 </div>
