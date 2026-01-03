@@ -1947,6 +1947,7 @@ main.container > h1 + p { /* Selects paragraph immediately following h1 in main 
 
 #plan-details-form {
 /*   max-width: 800px; */
+  min-width: fit-content;
   margin: 0 auto;
   background-color: var(--light-color);
   padding: 2rem;
