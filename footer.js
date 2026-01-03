@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <footer>
             <div class="container footer-grid">
                 <div class="footer-section footer-company">
-                    <h3>BRANDEXTENDERS</h3>
-                    <p>1220 L St. NW<br>Washington, DC 20005<br>(877) 633-1133</p>
+                    <h3>Acrobat Branding</h3>
+                    <p>786-304-2044<br>sales@acrobatbranding.com</p>
                 </div>
                 <div class="footer-section footer-links">
                     <h3>Quick Links</h3>
