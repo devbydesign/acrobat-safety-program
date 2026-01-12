@@ -61,6 +61,11 @@ h1, h2, h3 {
   line-height: 1.3;
   color: var(--primary-color);
   font-weight: 700; /* Bolder headings */
+  text-shadow:
+    0 1px 2px rgba(0,0,0,0.1),
+    0 2px 4px rgba(0,0,0,0.08),
+    0 3px 6px rgba(0,0,0,0.06),
+    0 4px 8px rgba(0,0,0,0.04);
 }
 
 h1 {
